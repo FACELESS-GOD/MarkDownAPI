@@ -8,6 +8,8 @@ import (
 )
 
 func CustomRouter(Router *mux.Router) {
-	Router.HandleFunc(RouterURL.SiginUPURL, Controller.SignUp).Methods("GET")
-	Router.HandleFunc(RouterURL.SiginUPURL, Controller.Login).Methods("GET")
+	Router.HandleFunc(RouterURL.AddFileURL, Controller.AddFile).Methods("POST")
+	Router.HandleFunc(RouterURL.GetFileURL, Controller.GetFileByID).Methods("GET")
+	Router.HandleFunc(RouterURL.GetAllFilesURL, Controller.GetAllFileByID).Methods("GET")
+	Router.HandleFunc(RouterURL.GetRenderedFilesURL, Controller.GetRenderedFileByID).Methods("GET")
 }

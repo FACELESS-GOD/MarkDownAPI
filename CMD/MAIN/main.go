@@ -2,7 +2,6 @@ package main
 
 import (
 	"MarkDownAPI/Package/Route"
-	"MarkDownAPI/Package/Utility"
 	"log"
 	"net/http"
 
@@ -10,9 +9,6 @@ import (
 )
 
 func main() {
-	Utility.InitialiseDatabaseConnection()
-
-	Utility.InitialiseRedisConn()
 
 	MuxRouter := mux.NewRouter()
 
@@ -21,7 +17,5 @@ func main() {
 	http.Handle("/", MuxRouter)
 
 	log.Fatal(http.ListenAndServe("localhost:9030", MuxRouter))
-
-	defer Utility.TerminateDatabaseConnection()
 
 }
